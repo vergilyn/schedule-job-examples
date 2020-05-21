@@ -1,0 +1,3 @@
+[submodule "elasitc-job-example-fork"]
+	path = elasitc-job-example-fork
+	url = https://github.com/vergilyn/elastic-job-example-fork

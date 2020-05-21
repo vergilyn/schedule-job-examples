@@ -10,6 +10,7 @@
 
     <modules>
         <module>elastic-job-lite-examples</module>
+        <module>elastic-job-example-fork</module>
     </modules>
 
     <properties>
