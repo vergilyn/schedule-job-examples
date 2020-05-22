@@ -20,7 +20,7 @@
 > SHOW variables like 'innodb_file_format';  
 > SET GLOBAL innodb_file_format = BARRACUDA;  
   
-2. `http://127.0.0.1:8080/xxl-job-admin`
+2. `http://127.0.0.1:8080/xxl-job-admin`    admin/123456
 
 ## xxl-job-executor-sample-springboot
 

@@ -6,6 +6,7 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -39,6 +40,8 @@ public class SampleXxlJob {
      */
     @XxlJob("demoJobHandler")
     public ReturnT<String> demoJobHandler(String param) throws Exception {
+        System.out.printf("[%s] demoJobHandler >>>> %s \r\n", LocalTime.now().toString(), param);
+
         XxlJobLogger.log("XXL-JOB, Hello World.");
 
         for (int i = 0; i < 5; i++) {
