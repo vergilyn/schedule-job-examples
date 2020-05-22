@@ -25,8 +25,8 @@ elastic-job貌似打算捐献给apache-ShardingSphere 成为其 sub-project，�
 [lts-examples]: https://github.com/ltsopensource/lts-examples
 [lts-docs]: https://qq254963746.gitbooks.io/lts/content/
 
-3. xxl-job
-- [xxl-job]
+3. xxl-job (活跃度较高)
+- [xxl-job]: include samples
 - [xxl-job-docs]
 
 [xxl-job]: https://github.com/xuxueli/xxl-job

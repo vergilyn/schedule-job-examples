@@ -10,7 +10,8 @@
 
     <modules>
         <module>elastic-job-lite-examples</module>
-        <module>elastic-job-example-fork</module>
+        <module>elastic-job-example-official</module>
+        <module>xxl-job-examples-official</module>
     </modules>
 
     <properties>
