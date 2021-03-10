@@ -21,7 +21,7 @@
     <properties>
         <lts.version>1.7.0</lts.version>
         <!-- LTS-1.7.0 依赖以下版本 -->
-        <mysql-connector-java.version>5.1.49</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
         <zkclient.version>0.1</zkclient.version>
         <netty-all.version>4.0.20.Final</netty-all.version>
         <mapdb.version>2.0-beta10</mapdb.version>
