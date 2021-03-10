@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>schedule-job-examples</artifactId>
+        <groupId>com.vergilyn.examples</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>lts-examples</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lts-env-deploy</module>
+        <module>lts-client-annotation-examples</module>
+    </modules>
+
+    <properties>
+        <lts.version>1.7.0</lts.version>
+        <!-- LTS-1.7.0 依赖以下版本 -->
+        <mysql-connector-java.version>5.1.49</mysql-connector-java.version>
+        <zkclient.version>0.1</zkclient.version>
+        <netty-all.version>4.0.20.Final</netty-all.version>
+        <mapdb.version>2.0-beta10</mapdb.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.ltsopensource</groupId>
+                <artifactId>lts</artifactId>
+                <version>${lts.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ltsopensource</groupId>
+                <artifactId>lts-spring</artifactId>
+                <version>${lts.version}</version>
+            </dependency>
+
+            <!-- zookeeper -->
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient.version}</version>
+            </dependency>
+
+            <!-- mysql-driver -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapdb</groupId>
+                <artifactId>mapdb</artifactId>
+                <version>${mapdb.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

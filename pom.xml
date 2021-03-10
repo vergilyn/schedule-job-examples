@@ -6,12 +6,12 @@
     <groupId>com.vergilyn.examples</groupId>
     <artifactId>schedule-job-examples</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
 
     <modules>
         <module>elastic-job-lite-examples</module>
-        <module>elastic-job-example-official</module>
         <module>xxl-job-examples-official</module>
+        <module>lts-examples</module>
     </modules>
 
     <properties>
@@ -19,21 +19,30 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <spring-boot-dependencies.version>2.2.2.RELEASE</spring-boot-dependencies.version>
+        <revision>1.0.0-SNAPSHOT</revision>
 
+        <spring-boot-dependencies.version>2.2.11.RELEASE</spring-boot-dependencies.version>
         <projectlombok.version>1.18.10</projectlombok.version>
-        <fasterxml-jackson.version>2.11.0</fasterxml-jackson.version>
-        <google-guava.version>28.2-jre</google-guava.version>
+        <google-guava.version>30.0-jre</google-guava.version>
+        <alibaba-fastjson.version>1.2.62</alibaba-fastjson.version>
+
+        <alibaba-druid.version>1.2.4</alibaba-druid.version>
+        <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
+        <apache-zookeeper.version>3.4.14</apache-zookeeper.version>
 
         <apache-common-lang3.version>3.9</apache-common-lang3.version>
-        <apache-common-collections4.version>4.4</apache-common-collections4.version>
-        <apache-common-text.version>1.8</apache-common-text.version>
+        <apache-common-text.version>1.9</apache-common-text.version>
         <apache-common-io.version>2.6</apache-common-io.version>
+        <apache-common-beanutils.version>1.9.4</apache-common-beanutils.version>
+        <apache-common-fileupload.version>1.4</apache-common-fileupload.version>
+        <apache-common-httpclient.version>4.5.10</apache-common-httpclient.version>
+        <apache-common-collections4.version>4.4</apache-common-collections4.version>
+        <apache-common-codec.version>1.15</apache-common-codec.version>
         <apache-common-pool2.version>2.6.1</apache-common-pool2.version>
 
         <testng.version>7.1.0</testng.version>
-        <junit-jupiter.version>5.6.2</junit-jupiter.version>
-        <jmh.version>1.23</jmh.version>
+        <mockito-core.version>3.7.7</mockito-core.version>
+        <hamcrest.version>2.2</hamcrest.version>
     </properties>
 
     <dependencyManagement>
@@ -46,51 +55,83 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- spring-boot-test -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <scope>test</scope>
-                <version>${spring-boot-dependencies.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.junit.jupiter</groupId>
-                        <artifactId>junit-jupiter</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.junit.vintage</groupId>
-                        <artifactId>junit-vintage-engine</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${apache-common-io.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-text</artifactId>
                 <version>${apache-common-text.version}</version>
             </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${apache-common-beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${apache-common-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${apache-common-fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache-common-httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${apache-common-codec.version}</version>
+            </dependency>
 
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-pool2</artifactId>
-                <version>${apache-common-pool2.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${alibaba-druid.version}</version>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${apache-zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${projectlombok.version}</version>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- logger -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
         <!-- utils -->
@@ -105,83 +146,50 @@
             <version>${apache-common-lang3.version}</version>
         </dependency>
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>${apache-common-collections4.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${alibaba-fastjson.version}</version>
+        </dependency>
 
+        <!-- test -->
+        <!-- spring-boot-starter-test 包含logger的依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-
-        <!-- jackson -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${fasterxml-jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${fasterxml-jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${fasterxml-jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${fasterxml-jackson.version}</version>
-        </dependency>
-
-        <!-- testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- junit 5.x -->
+        <!-- mockito -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-            <version>${junit-jupiter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
-            <version>${junit-jupiter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>test</scope>
-            <version>${junit-jupiter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-commons</artifactId>
-            <scope>test</scope>
-            <version>1.6.2</version>
-        </dependency>
-
-        <!-- jmh -->
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-            <version>${jmh.version}</version>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito-core.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
-            <version>${jmh.version}</version>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -195,7 +203,6 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <encoding>${project.reporting.outputEncoding}</encoding>
                 </configuration>
             </plugin>
 
@@ -209,4 +216,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

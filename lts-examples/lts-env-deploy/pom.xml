@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>lts-examples</artifactId>
+        <groupId>com.vergilyn.examples</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>lts-env-deploy</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lts-monitor-springboot</module>
+        <module>lts-job-tracker-springboot</module>
+        <module>lts-task-tracker-springboot</module>
+        <module>lts-admin-war</module>
+    </modules>
+
+</project>

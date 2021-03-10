@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.vergilyn.examples</groupId>
+        <artifactId>lts-env-deploy</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>lts-monitor-springboot</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.ltsopensource</groupId>
+            <artifactId>lts-monitor</artifactId>
+            <version>${lts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ltsopensource</groupId>
+            <artifactId>lts-spring</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${alibaba-druid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>
