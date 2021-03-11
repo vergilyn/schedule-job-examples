@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>lts-examples</artifactId>
+        <groupId>com.vergilyn.examples</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>lts-client-examples</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.ltsopensource</groupId>
+            <artifactId>lts-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ltsopensource</groupId>
+            <artifactId>lts-jobtracker</artifactId>
+            <version>${lts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ltsopensource</groupId>
+            <artifactId>lts-jobclient</artifactId>
+            <version>${lts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ltsopensource</groupId>
+            <artifactId>lts-tasktracker</artifactId>
+            <version>${lts.version}</version>
+        </dependency>
+
+        <!-- required: all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+
+        <!-- required: job-client & task-tracker -->
+        <dependency>
+            <groupId>org.mapdb</groupId>
+            <artifactId>mapdb</artifactId>
+        </dependency>
+
+        <!-- required: job-tracker -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${alibaba-druid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+</project>
