@@ -3,7 +3,7 @@ services:
   web:
     # The `web` service uses an image that’s built from the Dockerfile in the current directory.
     build: .
-    image: lts-admin-tomcat:1.0
+    image: lts-admin-tomcat:1.7.0
     container_name: lts-admin-1.7.0-tomcat
     # restart: always
 
@@ -17,3 +17,4 @@ services:
       - "./config/lts-monitor.cfg:/usr/local/tomcat/webapps/lts-admin/WEB-INF/classes/lts-monitor.cfg"
     environment:
        APPLICATION_NAME: lts-admin-docker-compose
+       # TODO 2021-10-14，`lts-admin.cfg` 和 `lts.monitor.cfg` 中无法通过环境变量指定 zk/mysql 地址等。

@@ -1,9 +1,9 @@
 # lts-env-deploy
 
-mysql: 127.0.0.1:3306
-registry: `zookeeper://127.0.0.1:2181`
-cluster-name: vergilyn-lts-cluster
-fail-store: (JobClient/TaskTracker) leveldb(default), berkeleydb, rocksdb, mapdb
+mysql: 127.0.0.1:3306  
+registry: `zookeeper://127.0.0.1:2181`  
+cluster-name: vergilyn-lts-cluster  
+fail-store: (JobClient/TaskTracker) leveldb(default), berkeleydb, rocksdb, mapdb  
 
 |              | required | database           | node-group                      | listen-port | fail-store | job   | queue |
 |:-------------|:---------|:-------------------|:--------------------------------|:------------|:-----------|:------|:------|
