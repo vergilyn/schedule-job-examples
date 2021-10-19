@@ -11,6 +11,7 @@ services:
     # This example service uses the default port for the Flask web server, `5000`.
     ports:
       - "8080:8080"
+      - "8730:8730"
     # The new `volumes` key mounts the project directory (current directory) on the host to `/code` inside the container,
     volumes:
       - "./config/lts-admin.cfg:/usr/local/tomcat/webapps/lts-admin/WEB-INF/classes/lts-admin.cfg"

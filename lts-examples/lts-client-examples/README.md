@@ -1,7 +1,7 @@
 # lts-client-examples
 
 为了方便测试，将LTS的3个核心整合到一起：
-    提交(job-client) --> 分发(jobt-racker) -->执行(task-tracker) 任务。
+    提交(job-client) --> 分发(job-tracker) -->执行(task-tracker) 任务。
 
 扩展工程：`lts-admin`、`lts-monitor`。see: [lts-env-deploy](../lts-env-deploy)
 

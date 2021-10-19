@@ -18,6 +18,7 @@
         <module>lts-job-tracker-springboot</module>
         <module>lts-task-tracker-springboot</module>
         <module>lts-admin-war</module>
+        <module>lts-admin</module>
     </modules>
 
 </project>

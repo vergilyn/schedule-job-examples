@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `lts_admin_node_onoffline_log`
     `event`         varchar(32)           DEFAULT NULL,
     `node_type`     varchar(16)           DEFAULT NULL,
     `cluster_name`  varchar(64)           DEFAULT NULL,
-    `ip`            varchar(16)           DEFAULT NULL,
+    `ip`            varchar(64)           DEFAULT NULL,
     `port`          int(11)               DEFAULT NULL,
     `host_name`     varchar(64)           DEFAULT NULL,
     `group`         varchar(64)           DEFAULT NULL,
