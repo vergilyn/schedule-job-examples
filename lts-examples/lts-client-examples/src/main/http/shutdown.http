@@ -1,0 +1,7 @@
+##
+GET http://localhost:18080/actuator/
+
+
+
+###
+POST http://localhost:18080/actuator/shutdown
