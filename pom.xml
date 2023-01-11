@@ -32,7 +32,7 @@
         <apache-zookeeper.version>3.4.14</apache-zookeeper.version>
 
         <apache-common-lang3.version>3.9</apache-common-lang3.version>
-        <apache-common-text.version>1.9</apache-common-text.version>
+        <apache-common-text.version>1.10.0</apache-common-text.version>
         <apache-common-io.version>2.6</apache-common-io.version>
         <apache-common-beanutils.version>1.9.4</apache-common-beanutils.version>
         <apache-common-fileupload.version>1.4</apache-common-fileupload.version>
