@@ -35,5 +35,10 @@ elastic-job貌似打算捐献给apache-ShardingSphere 成为其 sub-project，�
 
 ![schedule-job-compare.png](./docs/images/schedule-job-compare.png)
 
+4. PowerJob
+- https://github.com/PowerJob/PowerJob
+
+![compare-QuartZ-XXL-SchedulerX-Power.png](./docs/images/compare-QuartZ-XXL-SchedulerX-Power.png)
+
 ### elastic-job
 - [Elastic-Job原理分析（version:2.1.4）](https://www.cnblogs.com/kevin-yuan/p/7017795.html)
