@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  # https://hub.docker.com/r/powerjob/powerjob-server
+  # https://github.com/PowerJob/PowerJob/blob/v4.3.2/powerjob-server/docker/Dockerfile
+  powerjob-server:
+    image: powerjob/powerjob-server:4.3.2
+    container_name: powerjob-server-4.3.2
+    ports:
+      - 7700:7700
+      - 10086:10086
+      - 10010:10010
+    # VOLUME /root/powerjob
+    volumes:
+      - "./application.properties:/application.properties"
+      - "./application-daily.properties:/application-daily.properties"
+      - "./application-product.properties:/application-product.properties"
+    environment:
+      TZ: Asia/Chongqing
+      MYSQL_IP_PORT: host.docker.internal:23306
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: 123456
+      # springboot 启动参数
+      #PARAMS:
+      # jvm参数
+#      JVMOPTIONS: -Dpowerjob.network.local.address=192.168.65.2
+#      JVMOPTIONS: -Dpowerjob.network.interface.preferred=eth0
+#    entrypoint: sleep 1d
