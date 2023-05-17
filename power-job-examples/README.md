@@ -60,8 +60,7 @@
 看了一下相关代码，暂未理解通过此方式如何实现？（还是在 `ProcessorFactory`中去调用 OpenAPI 创建任务？）
 
 **参考：**  
-+ [【powerjon-OpenAPI】创建/修改任务](https://www.yuque.com/powerjob/guidence/olgyf0#0c4dccbf)
-+ [希望能通过注解自动创建定时任务 #491](https://github.com/PowerJob/PowerJob/issues/491)
+  
 
 ### Q6. 表 `job_info`
 
@@ -152,3 +151,26 @@ TODO 2023-04-27，待阅读相关选举的源码。
 1) 在`powerjob-server`端，通过 `oms.instanceinfo.retention=7` 设置保留天数。  
 2) 只会删除状态是`FAILED, 失败`, `SUCCEED, 成功`, `CANCELED, 取消`, `STOPPED, 手动停止`的任务实例日志。  
 3) 表`instance_info` 不存在 `gmtModified` 或 `status` 的索引，可能导致 delete 性能偏低。
+
+
+### Q11. 关于Cron类型任务最小间隔为15s的问题？
+示例：例如当通过 CRON 配置 `0/10 * * * * *`时，期望每间隔10s执行1次指定的任务，但实际通过 powerjob-console 执行日志查看后发现，实际调用间隔是 15s。
+
+> [关于Cron类型任务最小间隔为15s的问题 #201](https://github.com/PowerJob/PowerJob/issues/201)  
+> PowerJob 会对执行非常频繁的任务（以下简称秒级任务）进行特殊处理以提升 server 的调度性能。  
+> 对于几秒钟执行一次的任务，完全可以使用固定频率 / 固定延迟 来代替 CRON 。  
+> 
+> 解决方式：
+> 相关源码（在 powerjob-server 中） 
+> + ~~`com.github.kfcfans.powerjob.server.service.timing.schedule.OmsScheduleService`~~  (低版本代码)
+> + `tech.powerjob.server.core.scheduler.PowerScheduleService#scheduleNormalJob0(...)`  (version: 4.3.2)
+> 更短间隔的任务可以通过秒级任务（固定频率 or 固定延迟）实现。
+
+`CRON` 和 `固定频率(毫秒)` 在 powerjob-console 的“任务实例”展示的任务实例不一样。  
+`CRON`: 是每次执行产生一个任务实例。  
+`固定频率(毫秒)`: 只有1个任务实例，其内部的日志表明了是每10s执行1次。
+
+> [定时任务类型说明](https://www.yuque.com/powerjob/guidence/intro#yKu80)  
+> 备注：`固定延迟`和`固定频率`任务统称秒级任务，**这两种任务无法被停止，只有任务被关闭或删除时才能真正停止任务。**
+
+通过“任务实例”页面，即使提示“手动停止成功”，但是还是会一直运行。可以在“任务管理”中关闭或删除任务来停止。
